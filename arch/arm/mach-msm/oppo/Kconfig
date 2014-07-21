@@ -1,0 +1,42 @@
+config MACH_OPPO
+	bool
+	depends on ARCH_MSM
+
+config MACH_X9007
+	depends on ARCH_MSM8974
+	select MACH_OPPO
+	bool "MSM8974 X9007"
+	help
+	  Support for Oppo X9007 Find7 variants.
+
+menu "Oppo board selection"
+
+config MACH_FIND7
+	select MACH_X9007
+	bool "Find7"
+	help
+	  Support for the Find7 variant
+
+config MACH_FIND7OP
+	select MACH_X9007
+	bool "Oneplus"
+	help
+	  Support for the Oneplus variant
+
+endmenu
+
+menu "Oppo specific options"
+
+config OPPO_TRACE
+	tristate "Oppo trace driver"
+	default n
+	help
+	  Say Y to enable Oppo trace driver
+
+config OPPO_DEVICE_INFO
+	bool "Oppo device info driver"
+	default y if MACH_OPPO
+	help
+	  Say Y to enable Oppo device info driver
+
+endmenu
