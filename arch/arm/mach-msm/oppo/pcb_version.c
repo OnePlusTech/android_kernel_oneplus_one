@@ -93,10 +93,12 @@ int __init board_rf_version_init(char *s)
 		current_rf_version_num = RF_VERSION__76;
 	else if (!strncmp(s, "77", 2))
 		current_rf_version_num = RF_VERSION__77;
+	else if (!strncmp(s, "88", 2))
+		current_rf_version_num = RF_VERSION__88;
 
 	return 0;
 }
-__setup("oppo.rf_version", board_rf_version_init);
+__setup("oppo.rf_version=", board_rf_version_init);
 
 static int lcd_id = 0;
 int __init board_lcd_id_init(char *s)
